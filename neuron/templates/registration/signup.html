@@ -1,0 +1,111 @@
+<!-- <form method="post">
+    {% csrf_token %}
+    <label for="id_username">Username:</label>
+      {{form.username}}
+        <br>
+    <label for="id_password1">Password:</label>
+
+      {{form.password}}
+        <br>
+        <span class="helptext"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li>
+            <li>Your password can’t be entirely numeric.</li></ul></span>
+    <label for="id_password2">Password confirmation:</label>
+
+      {{form.password2}}
+        <br>
+        <span class="helptext">Enter the same password as before, for verification.</span><br>
+    <input type="submit" value="Register">
+</form> -->
+
+{% block content %}
+<body>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+        }
+
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        .form-group button:hover {
+            background-color: #93e797;
+        }
+        a{
+            color: #333;
+            text-decoration: none;
+        }
+    </style>
+
+    <div class="login-container">
+        <h2>Регистрация</h2>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Логин:</label>
+                {{ form.username }}
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                {{ form.password1 }}
+            </div>
+            <div class="form-group">
+                <label for="password">Повторный пароль:</label>
+                {{ form.password2 }}
+            </div>
+            <div class="form-group">
+                <button type="submit">Зарегистрироваться</button>
+            </div>
+        </form><br>
+        <a href="{% url 'login' %}">Back to login</a>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div><br>
+
+    
+</body>
+
+{% endblock %}
